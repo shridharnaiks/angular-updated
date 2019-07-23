@@ -1,0 +1,60 @@
+<div id="s"><div class='card' style='width:1100px;'>
+    <div class="card-header" >
+        {{collegeName}}
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-mod-2">Search By:</div>
+            <div class="col-mod-4">
+                <input type="text" [(ngModel)]="listfilter"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-mod-6">
+                <h4>college searched:{{listfilter}}</h4>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table"
+            *ngIf="colleges && colleges.length">
+            <thead>
+                <tr>
+                    <th>
+                        <button class="btn btn-primary"
+                        (click)="toggleImage()">
+                            Image</button>
+                    </th>
+                    <th>collegeName</th>
+                    <th>cutOff</th>
+                    <th>place</th>
+                    <th>zip</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let col of colleges">
+                    <td>
+                        <img *ngIf="showImage"
+                        [src]="col.imageUrl"
+                        [title]="col.collegeName" 
+                        [style.width.px]='imgWidth' 
+                        [style.height.px]='imgHeight' >
+
+                    </td>
+                    
+                    <td><a [routerLink]="['/idrouter',col.collegeName]">{{col.collegeName}}</a></td>
+                    <td>{{col.cutOff}}</td>
+                    <td>{{col.place}}</td>
+                    <td>{{col.zip}}</td>
+
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<router-outlet></router-outlet>                

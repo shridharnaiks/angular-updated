@@ -1,0 +1,99 @@
+<!--<div class="card">
+<div class="card-header">
+
+Register Please!
+
+</div>
+<div class="card-body">
+<form novalidate (ngSubmit)="save(regForm)"
+#regForm="ngForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="firstNameId">First Name</label>
+        <div class="col-md-8">
+            <input type="text" required
+                    class="form-control"
+                    id="firstNameId"
+                    minlength="3"
+                    name="firstName"
+                    [(ngModel)]=user.firstName
+                    #firstNameVar="ngModel"
+                    [ngClass]="{'is-invalid':(firstNameVar.touched||firstNameVar.dirty)&& !firstNameVar.valid }  " /> 
+                    <span class="invalid-feedback">
+                            <span *ngIf="firstNameVar.errors?.required">
+                              Please enter your first name.
+                            </span>
+                            <span *ngIf="firstNameVar.errors?.minlength">
+                              The first name must be longer than 3 characters.
+                            </span>
+                          </span>
+
+                          <div class="form-group row mb-2">
+                                <div class="offset-md-2 col-md-4">
+                                  <button class="btn btn-primary mr-3"
+                                          type="submit"
+                                          style="width:80px"
+                                          [title]="regForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                                          [disabled]="!regForm.valid">
+                                    Save
+                                  </button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+     
+</form>
+
+</div>
+</div>-->
+<html>
+  <head>
+
+  </head>
+  <body>
+   <h1>Student Login</h1>
+
+    <br><br>
+    <form novalidate (ngSubmit)="save(regForm)"
+      #regForm="ngForm"><i class="fa fa-user"><br><input type='text' required 
+                    class="form-control"
+                    id="UsernameId"
+                    minlength="3"
+                    name="Username"
+                    [(ngModel)]=user.Username
+                    #UsernameVar="ngModel"
+                    [ngClass]="{'is-invalid':(UsernameVar.touched||UsernameVar.dirty)&& !UsernameVar.valid }  " placeholder='Username'>
+                    <span class="invalid-feedback">
+                            <span *ngIf="UsernameVar.errors?.required">
+                              Please enter Username.
+                            </span>
+                            <span *ngIf="UsernameVar.errors?.minlength">
+                              Username must be longer than 3 characters.
+                            </span>
+                          </span></i><br><br>
+    <i class="fa fa-key"><input type='password' required 
+                    class="form-control"
+                    id="passwordId"
+                    minlength="6"
+                    name="password"
+                    [(ngModel)]=user.password
+                    #passwordVar="ngModel"
+                    [ngClass]="{'is-invalid':(passwordVar.touched||passwordVar.dirty)&& !passwordVar.valid }  " placeholder='password'>
+                    <span class="invalid-feedback">
+                            <span *ngIf="passwordVar.errors?.required">
+                              Please enter password.
+                            </span>
+                            <span *ngIf="passwordVar.errors?.minlength">
+                            password must be longer than 6 characters.
+                            </span>
+                          </span></i><br><br>
+    <hr>
+   <button type="button" class="btn btn-primary btn-sm"
+                                          style="width:80px"
+                                          [title]="regForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                                          [disabled]="!regForm.valid"><i class="fa fa-check"></i>Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i>Register</button>
+    </form>
+    </body>
+</html>
